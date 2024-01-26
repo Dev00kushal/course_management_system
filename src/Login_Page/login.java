@@ -1,9 +1,12 @@
+package Login_Page;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Login_Page;
-import course.management.system.db_connect;
+
+import Login_Page.db_connect;
+
 /**
  *
  * @author devku
