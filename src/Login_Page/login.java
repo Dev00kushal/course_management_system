@@ -309,13 +309,12 @@ public class login extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jLabel6MouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        db_connect login_validator = new db_connect();
-        String[] credentials = {email.getText(), password.getText()};
-        login_validator.Login(credentials[0], credentials[1]); // Fix: Pass the correct arguments to the Login method
-    }
+private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {                    
+    db_connect login_validator = new db_connect();
+    login_validator.login(email.getText(), password.getText()); 
+}
 
-    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
+    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
     }
 
