@@ -6,6 +6,7 @@ package Login_Page;
  */
 
 import Login_Page.db_connect;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -313,8 +314,17 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel6MouseClicked
 
 private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {                    
-    db_connect login_validator = new db_connect();
-    login_validator.login(email.getText(), password.getText()); 
+ String userEmail = email.getText();
+        String userPassword = new String(password.getPassword());
+
+        db_connect loginValidator = new db_connect();
+        boolean loginResult = loginValidator.login(userEmail, userPassword);
+
+        if (loginResult) {
+            JOptionPane.showMessageDialog(this, "Login successful!");
+        } else {
+            JOptionPane.showMessageDialog(this, "Login failed. Please check your credentials.");
+        }
 }
 
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {                                         

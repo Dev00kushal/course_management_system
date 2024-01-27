@@ -1,10 +1,10 @@
 package Login_Page;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class db_connect {
     private static final String url = "jdbc:mysql://localhost:3306/";
@@ -21,28 +21,35 @@ public class db_connect {
     }
 
     public boolean login(String userEmail, String userPassword) {
+        if (!isValidEmail(userEmail)) {
+            System.out.println("Login failed: Invalid email format");
+            return false;
+        }
+
         try (Connection con = DriverManager.getConnection(url + databaseName, username, password)) {
+            System.out.println("Connected to database for login");
+            
             PreparedStatement selectStatement = con.prepareStatement("SELECT * FROM users WHERE Email = ?");
             selectStatement.setString(1, userEmail);
 
             ResultSet resultSet = selectStatement.executeQuery();
 
             if (resultSet.next()) {
-             
                 if (userPassword.equals(resultSet.getString("Password"))) {
                     System.out.println("Login successful");
                     return true;
                 } else {
-                    System.out.println("Invalid password");
+                    System.out.println("Login failed: Invalid password");
                     return false;
                 }
             } else {
-                System.out.println("Invalid email");
+                System.out.println("Login failed: User not found");
                 return false;
             }
 
         } catch (SQLException e) {
-            System.out.println("Error: " + e.getMessage());
+            e.printStackTrace();
+            System.out.println("Error during login: " + e.getMessage());
             return false;
         }
     }
@@ -53,21 +60,29 @@ public class db_connect {
             statement.executeUpdate();
             System.out.println("Database created: " + databaseName);
         } catch (SQLException e) {
-            System.out.println("Error: " + e.getMessage());
+            e.printStackTrace();
+            System.out.println("Error creating database: " + e.getMessage());
         }
     }
 
-    public void insertUser(String userEmail, String userPassword) {
-        try (Connection con = DriverManager.getConnection(url + databaseName, username, password);
-             PreparedStatement insertStatement = con.prepareStatement("INSERT INTO users (Email, Password) VALUES (?, ?)")) {
-            insertStatement.setString(1, userEmail);
-            insertStatement.setString(2, userPassword); 
-            insertStatement.executeUpdate();
-            System.out.println("User added successfully!");
-        } catch (SQLException e) {
-            System.out.println("Error inserting user: " + e.getMessage());
-        }
+public void insertUser(String userEmail, String userPassword) {
+    if (!isValidEmail(userEmail)) {
+        System.out.println("Invalid email");
+        return;
     }
+
+    try (Connection con = DriverManager.getConnection(url + databaseName, username, password);
+         PreparedStatement insertStatement = con.prepareStatement("INSERT INTO users (Email, Password) VALUES (?, ?)")) {
+        insertStatement.setString(1, userEmail);
+        insertStatement.setString(2, userPassword);
+        insertStatement.executeUpdate();
+        System.out.println("User added successfully!");
+    } catch (SQLException e) {
+        e.printStackTrace();
+        System.out.println("Error inserting user: " + e.getMessage());
+    }
+}
+
 
     public void updateDatabase() {
         try (Connection con = DriverManager.getConnection(url + databaseName, username, password);
@@ -77,23 +92,15 @@ public class db_connect {
             System.out.println("Table 'users' created!");
 
         } catch (SQLException e) {
+            e.printStackTrace();
             System.out.println("Error updating database: " + e.getMessage());
         }
     }
 
-    public void closeResources(Connection con, Statement st, ResultSet rs) {
-        try {
-            if (st != null) {
-                st.close();
-            }
-            if (con != null) {
-                con.close();
-            }
-            if (rs != null) {
-                rs.close();
-            }
-        } catch (SQLException e) {
-            System.out.println("Error: " + e.getMessage());
-        }
+    private boolean isValidEmail(String email) {
+        System.out.println("Validating email: " + email);
+        boolean isValid = email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+        System.out.println("Is valid email? " + isValid);
+        return isValid;
     }
 }
