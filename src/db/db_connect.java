@@ -1,4 +1,4 @@
-package Login_Page;
+package db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -21,10 +21,6 @@ public class db_connect {
     }
 
     public boolean login(String userEmail, String userPassword) {
-        if (!isValidEmail(userEmail)) {
-            System.out.println("Login failed: Invalid email format");
-            return false;
-        }
 
         try (Connection con = DriverManager.getConnection(url + databaseName, username, password)) {
             System.out.println("Connected to database for login");
@@ -65,23 +61,19 @@ public class db_connect {
         }
     }
 
-public void insertUser(String userEmail, String userPassword) {
-    if (!isValidEmail(userEmail)) {
-        System.out.println("Invalid email");
-        return;
-    }
+    public void insertUser(String userEmail, String userPassword) {
 
-    try (Connection con = DriverManager.getConnection(url + databaseName, username, password);
-         PreparedStatement insertStatement = con.prepareStatement("INSERT INTO users (Email, Password) VALUES (?, ?)")) {
-        insertStatement.setString(1, userEmail);
-        insertStatement.setString(2, userPassword);
-        insertStatement.executeUpdate();
-        System.out.println("User added successfully!");
-    } catch (SQLException e) {
-        e.printStackTrace();
-        System.out.println("Error inserting user: " + e.getMessage());
+        try (Connection con = DriverManager.getConnection(url + databaseName, username, password);
+             PreparedStatement insertStatement = con.prepareStatement("INSERT INTO users (Email, Password) VALUES (?, ?)")) {
+            insertStatement.setString(1, userEmail);
+            insertStatement.setString(2, userPassword);
+            insertStatement.executeUpdate();
+            System.out.println("User added successfully!");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Error inserting user: " + e.getMessage());
+        }
     }
-}
 
 
     public void updateDatabase() {
@@ -97,10 +89,5 @@ public void insertUser(String userEmail, String userPassword) {
         }
     }
 
-    private boolean isValidEmail(String email) {
-        System.out.println("Validating email: " + email);
-        boolean isValid = email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
-        System.out.println("Is valid email? " + isValid);
-        return isValid;
-    }
+   
 }

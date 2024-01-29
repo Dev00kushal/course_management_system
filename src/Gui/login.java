@@ -1,12 +1,8 @@
-package Login_Page;
+package Gui;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-
-import Login_Page.db_connect;
 import javax.swing.JOptionPane;
+
+import db.db_connect;
 
 /**
  *
