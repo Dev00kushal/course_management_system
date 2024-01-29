@@ -152,6 +152,11 @@ public class login extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("JetBrains Mono NL Medium", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Signup");
+        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel13MouseClicked(evt);
+            }
+        });
 
         email.addInputMethodListener(new java.awt.event.InputMethodListener() {
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
@@ -268,7 +273,6 @@ public class login extends javax.swing.JFrame {
                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(36, 36, 36))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jCheckBox1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -309,6 +313,13 @@ public class login extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jLabel6MouseClicked
 
+    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
+        // signup
+        Signup s1 = new Signup();
+        s1.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jLabel13MouseClicked
+
 private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {                    
  String userEmail = email.getText();
         String userPassword = new String(password.getPassword());
@@ -321,6 +332,8 @@ private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {
         } else {
             JOptionPane.showMessageDialog(this, "Login failed. Please check your credentials.");
         }
+         email.setText("");
+         password.setText("");
 }
 
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {                                         
