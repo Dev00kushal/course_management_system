@@ -2,7 +2,7 @@ package Gui;
 
 import javax.swing.JOptionPane;
 
-import db.db_connect;
+import Database.db_connect;
 
 /**
  *
