@@ -35,11 +35,13 @@ public class login extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         signupBtnOnLoginJframe = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
+        setPreferredSize(new java.awt.Dimension(950, 558));
         getContentPane().setLayout(new java.awt.GridLayout(1, 2));
 
         jPanel2.setBackground(new java.awt.Color(123, 95, 241));
@@ -50,7 +52,7 @@ public class login extends javax.swing.JFrame {
         jTextField2.setForeground(new java.awt.Color(255, 255, 255));
         jTextField2.setText("Biraj Boka");
         jTextField2.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), "Email", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Poppins", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
-        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 421, 50));
+        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 370, 50));
 
         jPasswordField1.setBackground(new java.awt.Color(123, 95, 241));
         jPasswordField1.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
@@ -58,7 +60,7 @@ public class login extends javax.swing.JFrame {
         jPasswordField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jPasswordField1.setText("jPasswordField1");
         jPasswordField1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), "Password", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Poppins", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
-        jPanel2.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 421, 50));
+        jPanel2.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 370, 50));
 
         selectRolesLogin.setBackground(new java.awt.Color(123, 95, 241));
         selectRolesLogin.setEditable(true);
@@ -72,7 +74,7 @@ public class login extends javax.swing.JFrame {
                 selectRolesLoginActionPerformed(evt);
             }
         });
-        jPanel2.add(selectRolesLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 420, 40));
+        jPanel2.add(selectRolesLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 270, 30));
 
         signupBtn.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
         signupBtn.setForeground(new java.awt.Color(123, 95, 241));
@@ -83,14 +85,15 @@ public class login extends javax.swing.JFrame {
         signupBtn.setDefaultCapable(false);
         signupBtn.setFocusPainted(false);
         signupBtn.setFocusable(false);
-        jPanel2.add(signupBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 420, 50));
+        jPanel2.add(signupBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 370, 50));
 
-        jLabel2.setFont(new java.awt.Font("Poppins ExtraBold", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Poppins ExtraBold", 1, 28)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icons/Home.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icons/key.png"))); // NOI18N
         jLabel2.setText("Login");
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 76, 410, 70));
+        jLabel2.setIconTextGap(10);
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 350, 70));
 
         jLabel3.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -108,6 +111,13 @@ public class login extends javax.swing.JFrame {
         });
         jPanel2.add(signupBtnOnLoginJframe, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 450, -1, -1));
 
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Choose Role :");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, 50));
+
         getContentPane().add(jPanel2);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -117,7 +127,7 @@ public class login extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(123, 95, 241));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icons/signup.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 539, 539));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 539));
 
         getContentPane().add(jPanel1);
 
@@ -174,6 +184,7 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPasswordField1;
