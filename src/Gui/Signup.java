@@ -42,6 +42,9 @@ public class Signup extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Create an account");
+        setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        setForeground(new java.awt.Color(123, 95, 241));
         getContentPane().setLayout(new java.awt.GridLayout(1, 2));
 
         jPanel3.setBackground(new java.awt.Color(123, 95, 241));
@@ -87,7 +90,6 @@ public class Signup extends javax.swing.JFrame {
         selectRoles.setForeground(new java.awt.Color(255, 255, 255));
         selectRoles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Student", "Instructor", "Admin" }));
         selectRoles.setToolTipText("");
-        selectRoles.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), "Select Roles", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Poppins", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
         selectRoles.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         selectRoles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,7 +103,6 @@ public class Signup extends javax.swing.JFrame {
         selectCourse.setForeground(new java.awt.Color(255, 255, 255));
         selectCourse.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "BIT", "BCA", "BBA" }));
         selectCourse.setToolTipText("");
-        selectCourse.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), "Select Course", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Poppins", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
         selectCourse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         signupBtn.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
@@ -166,16 +167,16 @@ public class Signup extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(selectRoles, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(selectRoles, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(selectCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(selectCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(signupBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel5))
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         selectCourse.getAccessibleContext().setAccessibleName("Select Course");
