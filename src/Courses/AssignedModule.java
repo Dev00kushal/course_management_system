@@ -1,4 +1,4 @@
-package Courses;
+package courses;
 
 public class AssignedModule {
     public int instructorId;

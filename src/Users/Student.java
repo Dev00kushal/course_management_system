@@ -13,7 +13,9 @@ import Exception.NullException;
 
 public class Student extends User implements Activity {
 
-
+public Student(){
+    
+}
     // parameter
     public Student(int id, String name, String email) {
     super(id,name,email);
@@ -33,6 +35,7 @@ public class Student extends User implements Activity {
             JOptionPane.showMessageDialog(null, "Account created successfully");
             state.close();
         } catch (SQLException e) {
+            e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Unable To Register!!!");
             System.out.println(e);
         }

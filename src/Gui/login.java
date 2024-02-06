@@ -29,7 +29,7 @@ public class login extends javax.swing.JFrame {
         email = new javax.swing.JTextField();
         password = new javax.swing.JPasswordField();
         selectRolesLogin = new javax.swing.JComboBox<>();
-        LoginBtn = new javax.swing.JButton();
+        signupBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         signupBtnOnLoginJframe = new javax.swing.JLabel();
@@ -39,6 +39,7 @@ public class login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
+        setPreferredSize(new java.awt.Dimension(950, 558));
         getContentPane().setLayout(new java.awt.GridLayout(1, 2));
 
         jPanel2.setBackground(new java.awt.Color(123, 95, 241));
@@ -73,21 +74,16 @@ public class login extends javax.swing.JFrame {
         });
         jPanel2.add(selectRolesLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 270, 30));
 
-        LoginBtn.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        LoginBtn.setForeground(new java.awt.Color(123, 95, 241));
-        LoginBtn.setText("Login");
-        LoginBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 50, true));
-        LoginBtn.setBorderPainted(false);
-        LoginBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        LoginBtn.setDefaultCapable(false);
-        LoginBtn.setFocusPainted(false);
-        LoginBtn.setFocusable(false);
-        LoginBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                LoginBtnMouseClicked(evt);
-            }
-        });
-        jPanel2.add(LoginBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 370, 50));
+        signupBtn.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
+        signupBtn.setForeground(new java.awt.Color(123, 95, 241));
+        signupBtn.setText("Login");
+        signupBtn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 50, true));
+        signupBtn.setBorderPainted(false);
+        signupBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        signupBtn.setDefaultCapable(false);
+        signupBtn.setFocusPainted(false);
+        signupBtn.setFocusable(false);
+        jPanel2.add(signupBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 370, 50));
 
         jLabel2.setFont(new java.awt.Font("Poppins ExtraBold", 1, 28)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -222,7 +218,6 @@ String emailField = email.getText();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton LoginBtn;
     private javax.swing.JTextField email;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -232,6 +227,7 @@ String emailField = email.getText();
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField password;
     private javax.swing.JComboBox<String> selectRolesLogin;
+    private javax.swing.JButton signupBtn;
     private javax.swing.JLabel signupBtnOnLoginJframe;
     // End of variables declaration//GEN-END:variables
 }

@@ -9,9 +9,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-import Courses.AssignedModule;
 import Database.ConnectionDB;
 import Exception.NullException;
+import courses.AssignedModule;
 
 public class Instructor extends User implements Activity {
     private Connection connect;

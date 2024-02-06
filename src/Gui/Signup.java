@@ -2,11 +2,13 @@
 package Gui;
 
 import Auth.Validation;
-import Courses.Courses;
 import Exception.InvalidFormat;
 import Exception.NullException;
 import Users.Instructor;
 import Users.Student;
+import courses.Courses;
+
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 
@@ -240,13 +242,14 @@ public class Signup extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_selectRolesActionPerformed
 
+
+    
     private void signupBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupBtnMouseClicked
    Instructor i = new Instructor();
-   Student s = new Student(set.getInt("student_id"), set.getString("student_name"), set.getString("student_email"));
-   Courses c = new Courses();
-        String uname = new String(name.getText());
+   Student s = new Student();
+        String uname = name.getText();
         String p = new String(password.getPassword());
-        String em = new String (email.getText());
+        String em = email.getText();
         Validation v = new Validation();
 
         try {
