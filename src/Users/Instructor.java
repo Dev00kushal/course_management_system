@@ -1,4 +1,4 @@
-package users;
+package Users;
 
 import java.nio.InvalidMarkException;
 import java.sql.Connection;
@@ -27,8 +27,8 @@ public class Instructor extends User implements Activity {
     }
 
     // parameter
-    public Instructor(int id, String name, String email, String phone) {
-        super(id, name, email, phone);
+    public Instructor(int id, String name, String email) {
+        super(id, name, email);
     }
 
     // geiing instructors
@@ -40,8 +40,8 @@ public class Instructor extends User implements Activity {
             ResultSet set = state.executeQuery(select);
             while (set.next()) {
                 instruct.add(new Instructor(set.getInt("instructor_id"), set.getString("instructor_name"),
-                        set.getString("instructor_email"),
-                        set.getString("instructor_phone")));
+                        set.getString("instructor_email")));
+               
             }
             state.executeQuery();
             state.close();
@@ -102,7 +102,6 @@ public class Instructor extends User implements Activity {
             ResultSet set = state.executeQuery(select);
             while (set.next()) {
                 instruct.add(set.getString("instructor_name"));
-                instruct.add(set.getString("instructor_phone"));
 
             }
             state.executeQuery();
@@ -179,13 +178,12 @@ public class Instructor extends User implements Activity {
         }
     }
 
-public void addInstructor(String name, String email, String phone, String password) {
-    String query = "INSERT INTO instructors (instructor_name, instructor_email, instructor_phone, instructor_password) VALUES (?, ?, ?, ?)";
+public void addInstructor(String name, String email, String password) {
+    String query = "INSERT INTO instructors (instructor_name, instructor_email,instructor_password) VALUES (?, ?, ?, ?)";
     try {
         PreparedStatement state = connect.prepareStatement(query);
         state.setString(1, name);
         state.setString(2, email);
-        state.setString(3, phone);
         state.setString(4, password);
         state.executeUpdate();
         state.close();

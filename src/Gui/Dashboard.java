@@ -74,19 +74,19 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icons/company.png"))); // NOI18N
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 59, 47));
 
-        jLabel10.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Poppins ExtraBold", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Of");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 30, -1));
 
-        jLabel11.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Poppins ExtraBold", 0, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel11.setText("Toronto");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 130, -1));
 
-        jLabel12.setFont(new java.awt.Font("Poppins SemiBold", 0, 14)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Poppins ExtraBold", 0, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel12.setText("University");
@@ -103,7 +103,7 @@ public class Dashboard extends javax.swing.JFrame {
                 coursesTabMouseClicked(evt);
             }
         });
-        jPanel1.add(coursesTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
+        jPanel1.add(coursesTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Poppins Medium", 1, 18)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
@@ -124,7 +124,7 @@ public class Dashboard extends javax.swing.JFrame {
                 dashboardTabMouseClicked(evt);
             }
         });
-        jPanel1.add(dashboardTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 128, 130, 40));
+        jPanel1.add(dashboardTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 130, 40));
 
         tutorsTab.setFont(new java.awt.Font("Poppins Medium", 0, 16)); // NOI18N
         tutorsTab.setForeground(new java.awt.Color(255, 255, 255));
@@ -150,7 +150,7 @@ public class Dashboard extends javax.swing.JFrame {
                 studentsTabMouseClicked(evt);
             }
         });
-        jPanel1.add(studentsTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
+        jPanel1.add(studentsTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
 
         settingsTab.setFont(new java.awt.Font("Poppins Medium", 0, 16)); // NOI18N
         settingsTab.setForeground(new java.awt.Color(255, 255, 255));
@@ -163,7 +163,7 @@ public class Dashboard extends javax.swing.JFrame {
                 settingsTabMouseClicked(evt);
             }
         });
-        jPanel1.add(settingsTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
+        jPanel1.add(settingsTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
 
         logoutTab.setFont(new java.awt.Font("Poppins Medium", 1, 16)); // NOI18N
         logoutTab.setForeground(new java.awt.Color(255, 255, 255));
@@ -176,7 +176,7 @@ public class Dashboard extends javax.swing.JFrame {
                 logoutTabMouseClicked(evt);
             }
         });
-        jPanel1.add(logoutTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
+        jPanel1.add(logoutTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 590));
 

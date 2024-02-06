@@ -1,4 +1,4 @@
-package users;
+package Users;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,25 +13,21 @@ import Exception.NullException;
 
 public class Student extends User implements Activity {
 
-    // default constructor
-    public Student() {
-    }
 
     // parameter
-    public Student(int id, String name, String email, String phone) {
-        super(id, name, email, phone);
+    public Student(int id, String name, String email) {
+    super(id,name,email);
     }
 
     // students
-    public void studentRegister(String s_name, int c_id, String s_email, String s_pass, String s_phone, int lvl) {
-        String insert = "INSERT INTO students (student_name, course_id, student_email, student_password, student_phone, level) VALUES(?,?,?,?,?,?) ";
+    public void studentRegister(String s_name, int c_id, String s_email, String s_pass, int lvl) {
+        String insert = "INSERT INTO students (student_name, course_id, student_email, student_password, level) VALUES(?,?,?,?,?,?) ";
         try {
             PreparedStatement state = connect.prepareStatement(insert);
             state.setString(1, s_name);
             state.setString(2, String.valueOf(c_id));
             state.setString(3, s_email);
             state.setString(4, s_pass);
-            state.setString(5, s_phone);
             state.setString(6, String.valueOf(lvl));
             state.executeUpdate();
             JOptionPane.showMessageDialog(null, "Account created successfully");
@@ -50,8 +46,7 @@ public class Student extends User implements Activity {
             ResultSet set = state.executeQuery(query);
             while (set.next()) {
                 students.add(new Student(set.getInt("student_id"), set.getString("student_name"),
-                        set.getString("student_email"),
-                        set.getString("student_phone")));
+                        set.getString("student_email")));
 
             }
             state.close();
@@ -71,7 +66,6 @@ public class Student extends User implements Activity {
             ResultSet set = state.executeQuery();
             while (set.next()) {
                 students.add(set.getString("student_name"));
-                students.add(set.getString("student_phone"));
                 students.add(set.getString("level"));
 
             }

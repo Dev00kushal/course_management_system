@@ -1,4 +1,4 @@
-package users;
+package Users;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,8 +17,8 @@ public class Admin extends User implements Activity {
 	public Admin() {
 	}
 
-	public Admin(int id, String name, String email, String phone) {
-		super(id, name, email, phone);
+	public Admin(int id, String name, String email) {
+		super(id, name, email);
 	}
 
 	@Override

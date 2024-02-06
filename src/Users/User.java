@@ -1,4 +1,4 @@
-package users;
+package Users;
 
 import Database.ConnectionDB;
 import java.sql.Connection;
@@ -14,7 +14,6 @@ public  class User {
 	public int id;
 	public String name;
 	public String email;
-	public String phone;
 	protected Connection connect;
 	static ConnectionDB db = new ConnectionDB();
 
@@ -26,11 +25,10 @@ public  class User {
 		}
 	}
 
-	public User(int id, String name, String email, String phone) {
+	public User(int id, String name, String email) {
 		this.id = id;
 		this.email = email;
 		this.name = name;
-		this.phone = phone;
 		try {
 			connect = db.load();
 		} catch (Exception ex) {
