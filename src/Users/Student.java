@@ -23,14 +23,15 @@ public Student(){
 
     // students
     public void studentRegister(String s_name, int c_id, String s_email, String s_pass, int lvl) {
-        String insert = "INSERT INTO students (student_name, course_id, student_email, student_password, level) VALUES(?,?,?,?,?,?) ";
+        String insert = "INSERT INTO students (student_name, course_id, student_email, student_password, level) VALUES(?,?,?,?,?) ";
+
         try {
             PreparedStatement state = connect.prepareStatement(insert);
             state.setString(1, s_name);
             state.setString(2, String.valueOf(c_id));
             state.setString(3, s_email);
             state.setString(4, s_pass);
-            state.setString(6, String.valueOf(lvl));
+            state.setString(5, String.valueOf(lvl));
             state.executeUpdate();
             JOptionPane.showMessageDialog(null, "Account created successfully");
             state.close();

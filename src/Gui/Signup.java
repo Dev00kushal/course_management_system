@@ -1,6 +1,4 @@
-
 package Gui;
-
 import Auth.Validation;
 import Exception.InvalidFormat;
 import Exception.NullException;
@@ -13,14 +11,11 @@ import javax.swing.JOptionPane;
 
 
 public class Signup extends javax.swing.JFrame {
-
-    
-    public Signup() {
-        initComponents();
+    public Signup() { 
+                 initComponents();
         this.setLocationRelativeTo(null);
+        populateCourses();
     }
-
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -49,46 +44,49 @@ public class Signup extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(123, 95, 241));
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Poppins ExtraBold", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icons/edit.png"))); // NOI18N
         jLabel1.setText("Create an account");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 332, -1));
 
         jLabel4.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Let's get started!");
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 86, 158, -1));
 
         name.setBackground(new java.awt.Color(123, 95, 241));
         name.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         name.setForeground(new java.awt.Color(255, 255, 255));
-        name.setText("Biraj Boka");
         name.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), "Name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Poppins", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
         name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameActionPerformed(evt);
             }
         });
+        jPanel3.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 139, 433, 50));
 
         email.setBackground(new java.awt.Color(123, 95, 241));
         email.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         email.setForeground(new java.awt.Color(255, 255, 255));
-        email.setText("Biraj Boka");
         email.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), "Email", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Poppins", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel3.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 207, 433, 50));
 
         password.setBackground(new java.awt.Color(123, 95, 241));
         password.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         password.setForeground(new java.awt.Color(255, 255, 255));
         password.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        password.setText("jPasswordField1");
         password.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), "Password", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Poppins", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel3.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 275, 433, 50));
 
         selectRoles.setBackground(new java.awt.Color(123, 95, 241));
         selectRoles.setEditable(true);
         selectRoles.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         selectRoles.setForeground(new java.awt.Color(255, 255, 255));
-        selectRoles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Student", "Instructor", "Admin" }));
+        selectRoles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select a role", "Student", "Instructor", "Admin" }));
         selectRoles.setToolTipText("");
         selectRoles.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         selectRoles.addActionListener(new java.awt.event.ActionListener() {
@@ -96,14 +94,17 @@ public class Signup extends javax.swing.JFrame {
                 selectRolesActionPerformed(evt);
             }
         });
+        jPanel3.add(selectRoles, new org.netbeans.lib.awtextra.AbsoluteConstraints(157, 343, 301, 40));
 
         selectCourse.setBackground(new java.awt.Color(123, 95, 241));
         selectCourse.setEditable(true);
         selectCourse.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         selectCourse.setForeground(new java.awt.Color(255, 255, 255));
-        selectCourse.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "BIT", "BCA", "BBA" }));
+        selectCourse.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select any course" }));
         selectCourse.setToolTipText("");
         selectCourse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel3.add(selectCourse, new org.netbeans.lib.awtextra.AbsoluteConstraints(157, 401, 301, 40));
+        selectCourse.getAccessibleContext().setAccessibleName("Select Course");
 
         signupBtn.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
         signupBtn.setForeground(new java.awt.Color(123, 95, 241));
@@ -119,10 +120,12 @@ public class Signup extends javax.swing.JFrame {
                 signupBtnMouseClicked(evt);
             }
         });
+        jPanel3.add(signupBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 453, 433, 50));
 
         jLabel3.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Already have an account?");
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 521, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Poppins", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -133,77 +136,19 @@ public class Signup extends javax.swing.JFrame {
                 jLabel5MouseClicked(evt);
             }
         });
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 521, 46, -1));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Select Role :");
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 352, 114, -1));
 
         courseLabel.setBackground(new java.awt.Color(255, 255, 255));
         courseLabel.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
         courseLabel.setForeground(new java.awt.Color(255, 255, 255));
         courseLabel.setText("Select Course :");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(password)
-                        .addComponent(email)
-                        .addComponent(name)
-                        .addComponent(signupBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(courseLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE))
-                            .addGap(18, 18, 18)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(selectRoles, 0, 301, Short.MAX_VALUE)
-                                .addComponent(selectCourse, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(89, 89, 89)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addGap(31, 31, 31)
-                .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(selectRoles, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(selectCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(courseLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(signupBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel5))
-                .addContainerGap(41, Short.MAX_VALUE))
-        );
-
-        selectCourse.getAccessibleContext().setAccessibleName("Select Course");
+        jPanel3.add(courseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 410, 114, -1));
 
         getContentPane().add(jPanel3);
 
@@ -218,19 +163,31 @@ public class Signup extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+   private void populateCourses() {
+    ArrayList<Courses> coursesList = new ArrayList<>();
+    Courses courseModel = new Courses();
+    coursesList = courseModel.getCourse();
+    
+    // Clear the existing items in the selectCourse combo box
+    selectCourse.removeAllItems();
+    
+    // Add each course name to the selectCourse combo box
+    for (Courses course : coursesList) {
+        selectCourse.addItem(course.course_name);
+    }
+}
 
     private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nameActionPerformed
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-//        // Login on signup jframe
-//        login l;
-//        l = new login();
-//        l.setVisible(true);
-//        dispose();
+       LoginPage l1 = new LoginPage();
+       l1.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jLabel5MouseClicked
 
+    
     private void selectRolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectRolesActionPerformed
         if(selectRoles.getSelectedItem().toString().equals("Student")){
             selectCourse.setVisible(true);
@@ -242,11 +199,13 @@ public class Signup extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_selectRolesActionPerformed
 
+		
 
     
     private void signupBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signupBtnMouseClicked
    Instructor i = new Instructor();
    Student s = new Student();
+   Courses c = new Courses();
         String uname = name.getText();
         String p = new String(password.getPassword());
         String em = email.getText();
@@ -271,6 +230,9 @@ public class Signup extends javax.swing.JFrame {
         } catch (InvalidFormat ex1) {
             JOptionPane.showMessageDialog(null, "Invalid Email or Phone Number or Password Format");
         }
+         email.setText("");
+         password.setText("");
+         name.setText("");
     }//GEN-LAST:event_signupBtnMouseClicked
 
     /**

@@ -30,15 +30,4 @@ public class Validation {
 
 	}
 
-	public boolean phoneCheck(String phone) throws InvalidFormat, NullException {
-		String patternString = "[0-9]*{10}";
-		if (phone == null) {
-			throw new NullException();
-		} else if (!Pattern.matches(patternString, phone)) {
-			throw new InvalidFormat();
-		} else {
-			return true;
-		}
-	}
-
 }
