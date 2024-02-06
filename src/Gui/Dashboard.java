@@ -4,6 +4,8 @@
  */
 package Gui;
 
+import java.awt.Font;
+
 /**
  *
  * @author devku
@@ -32,13 +34,13 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        coursesTab = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
+        dashboardTab = new javax.swing.JLabel();
+        tutorsTab = new javax.swing.JLabel();
+        studentsTab = new javax.swing.JLabel();
+        settingsTab = new javax.swing.JLabel();
+        logoutTab = new javax.swing.JLabel();
         tabs = new javax.swing.JTabbedPane();
         dashboard = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -55,6 +57,7 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
         courses = new javax.swing.JPanel();
         tutors = new javax.swing.JPanel();
         students = new javax.swing.JPanel();
@@ -62,6 +65,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dashboard");
+        setPreferredSize(new java.awt.Dimension(1000, 590));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(123, 95, 241));
@@ -88,12 +92,18 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel12.setText("University");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 80, 20));
 
-        jLabel16.setFont(new java.awt.Font("Poppins Medium", 1, 18)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setText("Courses");
-        jLabel16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
+        coursesTab.setFont(new java.awt.Font("Poppins Medium", 0, 16)); // NOI18N
+        coursesTab.setForeground(new java.awt.Color(255, 255, 255));
+        coursesTab.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        coursesTab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icons/course.png"))); // NOI18N
+        coursesTab.setText("Courses");
+        coursesTab.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        coursesTab.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                coursesTabMouseClicked(evt);
+            }
+        });
+        jPanel1.add(coursesTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Poppins Medium", 1, 18)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
@@ -103,45 +113,72 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 80, -1));
 
-        jLabel18.setFont(new java.awt.Font("Poppins SemiBold", 0, 18)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icons/dashboard.png"))); // NOI18N
-        jLabel18.setText("Dashboard");
-        jLabel18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
+        dashboardTab.setFont(new java.awt.Font("Poppins ExtraBold", 0, 18)); // NOI18N
+        dashboardTab.setForeground(new java.awt.Color(255, 255, 255));
+        dashboardTab.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        dashboardTab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icons/dashboard.png"))); // NOI18N
+        dashboardTab.setText("Dashboard");
+        dashboardTab.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        dashboardTab.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dashboardTabMouseClicked(evt);
+            }
+        });
+        jPanel1.add(dashboardTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 128, 130, 40));
 
-        jLabel19.setFont(new java.awt.Font("Poppins Medium", 1, 18)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setText("Tutors");
-        jLabel19.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
+        tutorsTab.setFont(new java.awt.Font("Poppins Medium", 0, 16)); // NOI18N
+        tutorsTab.setForeground(new java.awt.Color(255, 255, 255));
+        tutorsTab.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tutorsTab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icons/tutor.png"))); // NOI18N
+        tutorsTab.setText("Tutors");
+        tutorsTab.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tutorsTab.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tutorsTabMouseClicked(evt);
+            }
+        });
+        jPanel1.add(tutorsTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
 
-        jLabel20.setFont(new java.awt.Font("Poppins Medium", 1, 18)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel20.setText("Students");
-        jLabel20.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
+        studentsTab.setFont(new java.awt.Font("Poppins Medium", 0, 16)); // NOI18N
+        studentsTab.setForeground(new java.awt.Color(255, 255, 255));
+        studentsTab.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        studentsTab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icons/student.png"))); // NOI18N
+        studentsTab.setText("Students");
+        studentsTab.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        studentsTab.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                studentsTabMouseClicked(evt);
+            }
+        });
+        jPanel1.add(studentsTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
 
-        jLabel21.setFont(new java.awt.Font("Poppins Medium", 1, 18)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icons/setting.png"))); // NOI18N
-        jLabel21.setText("Settings");
-        jLabel21.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
+        settingsTab.setFont(new java.awt.Font("Poppins Medium", 0, 16)); // NOI18N
+        settingsTab.setForeground(new java.awt.Color(255, 255, 255));
+        settingsTab.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        settingsTab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icons/setting.png"))); // NOI18N
+        settingsTab.setText("Settings");
+        settingsTab.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        settingsTab.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                settingsTabMouseClicked(evt);
+            }
+        });
+        jPanel1.add(settingsTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
 
-        jLabel22.setFont(new java.awt.Font("Poppins Medium", 1, 18)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icons/logout.png"))); // NOI18N
-        jLabel22.setText("Logout");
-        jLabel22.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
+        logoutTab.setFont(new java.awt.Font("Poppins Medium", 1, 16)); // NOI18N
+        logoutTab.setForeground(new java.awt.Color(255, 255, 255));
+        logoutTab.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        logoutTab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icons/logout.png"))); // NOI18N
+        logoutTab.setText("Logout");
+        logoutTab.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        logoutTab.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoutTabMouseClicked(evt);
+            }
+        });
+        jPanel1.add(logoutTab, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 590));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 590));
 
         dashboard.setBackground(new java.awt.Color(255, 255, 255));
         dashboard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -161,18 +198,19 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel3.setText("Administration");
         dashboard.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Poppins SemiBold", 1, 21)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Poppins ExtraBold", 0, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setText("Dashboard");
         dashboard.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 150, -1));
 
         jPanel2.setBackground(new java.awt.Color(74, 106, 241));
         jPanel2.setForeground(new java.awt.Color(255, 102, 255));
 
-        jLabel6.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Courses");
 
-        jLabel13.setFont(new java.awt.Font("Poppins Medium", 1, 36)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Poppins ExtraBold", 0, 48)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("10");
 
@@ -193,7 +231,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel6)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 43, Short.MAX_VALUE)
+                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 52, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -201,11 +239,11 @@ public class Dashboard extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(30, 30, 22));
 
-        jLabel7.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Students");
 
-        jLabel14.setFont(new java.awt.Font("Poppins Medium", 1, 36)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Poppins ExtraBold", 0, 48)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("400");
 
@@ -233,11 +271,11 @@ public class Dashboard extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(231, 229, 30));
 
-        jLabel8.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Poppins", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Teachers");
 
-        jLabel15.setFont(new java.awt.Font("Poppins Medium", 1, 36)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Poppins ExtraBold", 0, 48)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("50");
         jLabel15.setToolTipText("");
@@ -263,10 +301,11 @@ public class Dashboard extends javax.swing.JFrame {
         );
 
         dashboard.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 180, 220, 110));
+        dashboard.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 810, -1));
 
         tabs.addTab("tab1", dashboard);
 
-        courses.setBackground(new java.awt.Color(255, 51, 51));
+        courses.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout coursesLayout = new javax.swing.GroupLayout(courses);
         courses.setLayout(coursesLayout);
@@ -331,6 +370,60 @@ public class Dashboard extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void dashboardTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardTabMouseClicked
+         tabs.setSelectedIndex(0);
+        dashboardTab.setFont(new Font("Poppins ExtraBold", Font.PLAIN, 18));
+        coursesTab.setFont(new Font("Poppins Medium", Font.PLAIN, 16));
+        tutorsTab.setFont(new Font("Poppins Medium", Font.PLAIN, 16));
+        studentsTab.setFont(new Font("Poppins Medium", Font.PLAIN, 16));
+        settingsTab.setFont(new Font("Poppins Medium", Font.PLAIN, 16));
+    }//GEN-LAST:event_dashboardTabMouseClicked
+
+    private void logoutTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutTabMouseClicked
+          login l1 = new login();
+          l1.setVisible(true);
+          dispose();
+    }//GEN-LAST:event_logoutTabMouseClicked
+
+    private void coursesTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_coursesTabMouseClicked
+       tabs.setSelectedIndex(1);
+        coursesTab.setFont(new Font("Poppins ExtraBold", Font.PLAIN, 18));
+        dashboardTab.setFont(new Font("Poppins Medium", Font.PLAIN, 16));
+        tutorsTab.setFont(new Font("Poppins Medium", Font.PLAIN, 16));
+        studentsTab.setFont(new Font("Poppins Medium", Font.PLAIN, 16));
+        settingsTab.setFont(new Font("Poppins Medium", Font.PLAIN, 16));
+
+    }//GEN-LAST:event_coursesTabMouseClicked
+
+    private void tutorsTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tutorsTabMouseClicked
+               tabs.setSelectedIndex(2);
+        tutorsTab.setFont(new Font("Poppins ExtraBold", Font.PLAIN, 18));
+        dashboardTab.setFont(new Font("Poppins Medium", Font.PLAIN, 16));
+        coursesTab.setFont(new Font("Poppins Medium", Font.PLAIN, 16));
+        studentsTab.setFont(new Font("Poppins Medium", Font.PLAIN, 16));
+        settingsTab.setFont(new Font("Poppins Medium", Font.PLAIN, 16));
+       
+    }//GEN-LAST:event_tutorsTabMouseClicked
+
+    private void studentsTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_studentsTabMouseClicked
+       tabs.setSelectedIndex(3);
+        studentsTab.setFont(new Font("Poppins ExtraBold", Font.PLAIN, 18));
+        dashboardTab.setFont(new Font("Poppins Medium", Font.PLAIN, 16));
+        coursesTab.setFont(new Font("Poppins Medium", Font.PLAIN, 16));
+        tutorsTab.setFont(new Font("Poppins Medium", Font.PLAIN, 16));
+        settingsTab.setFont(new Font("Poppins Medium", Font.PLAIN, 16));
+     
+    }//GEN-LAST:event_studentsTabMouseClicked
+
+    private void settingsTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingsTabMouseClicked
+               tabs.setSelectedIndex(4);
+        settingsTab.setFont(new Font("Poppins ExtraBold", Font.PLAIN, 18));
+        dashboardTab.setFont(new Font("Poppins Medium", Font.PLAIN, 16));
+        coursesTab.setFont(new Font("Poppins Medium", Font.PLAIN, 16));
+        tutorsTab.setFont(new Font("Poppins Medium", Font.PLAIN, 16));
+        studentsTab.setFont(new Font("Poppins Medium", Font.PLAIN, 16));
+    }//GEN-LAST:event_settingsTabMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -368,7 +461,9 @@ public class Dashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel courses;
+    private javax.swing.JLabel coursesTab;
     private javax.swing.JPanel dashboard;
+    private javax.swing.JLabel dashboardTab;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -376,14 +471,8 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -395,9 +484,14 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel logoutTab;
     private javax.swing.JPanel settings;
+    private javax.swing.JLabel settingsTab;
     private javax.swing.JPanel students;
+    private javax.swing.JLabel studentsTab;
     private javax.swing.JTabbedPane tabs;
     private javax.swing.JPanel tutors;
+    private javax.swing.JLabel tutorsTab;
     // End of variables declaration//GEN-END:variables
 }
