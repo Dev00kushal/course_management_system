@@ -49,6 +49,7 @@ public class LoginPage extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login");
         getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -200,13 +201,13 @@ public class LoginPage extends javax.swing.JFrame {
                                                         
 						}
 					} else if (selectRolesLogin.getSelectedItem().equals("Instructor")) {
-						if (i.login(emailField, passField)) {
+						if (i.login(emailField, passField,uname)) {
                                                         new Dashboard(selectRolesLogin.getSelectedItem().toString(),emailField,uname,"Instructor").setVisible(true);                                              
                                                         dispose();
 
 						}
 					} else if (selectRolesLogin.getSelectedItem().equals("Admin")) {
-						if (a.login(emailField, passField)) {
+						if (a.login(emailField, passField,uname)) {
                                                         new Dashboard(selectRolesLogin.getSelectedItem().toString(),emailField,uname,"Administrator").setVisible(true);                                                        
                                                         dispose();
 

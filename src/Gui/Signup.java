@@ -238,6 +238,7 @@ public class Signup extends javax.swing.JFrame {
         }
          email.setText("");
          password.setText("");
+         username.setText("");
          
     }//GEN-LAST:event_signupBtnMouseClicked
     

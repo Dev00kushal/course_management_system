@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import Database.ConnectionDB;
+import Exception.InvalidCredintial;
 import Exception.NullException;
 import courses.AssignedModule;
 
@@ -51,9 +52,9 @@ public class Instructor extends User implements Activity {
         return instruct;
     }
 
-    @Override
-    public boolean login(String email, String password) {
-        if (email.isEmpty() || password.isEmpty()) {
+
+    public boolean login(String email, String password,String name) {
+        if (email.isEmpty() || password.isEmpty() || name.isEmpty()) {
             throw new NullException();
         }
         // TODO Auto-generated method stub
@@ -65,31 +66,30 @@ public class Instructor extends User implements Activity {
         try {
             stmt = connect.createStatement();
             rs = stmt.executeQuery(
-                    "SELECT instructor_email, instructor_password FROM instructors WHERE instructor_email='" + email
+                    "SELECT instructor_name, instructor_email, instructor_password FROM instructors WHERE instructor_email='" + email
                             + "'");
             if (rs.next()) {
                 // Get the password from the database
                 String passwordFromDB = rs.getString("instructor_password");
+                String nameFromDB = rs.getString("student_name");
 
                 // Compare the password from the database with the entered password
-                if (passwordFromDB.equals(password)) {
+                if (passwordFromDB.equals(password) && nameFromDB.equals(name)) {
                     System.out.println("Login successful!");
                     JOptionPane.showMessageDialog(null, "Login successful!");
                     return true;
                 } else {
-                    JOptionPane.showMessageDialog(null, "Incorrecet email or password!");
+                     JOptionPane.showMessageDialog(null, "Incorrect email, password, or name!");
 
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "Email not found!");
-
-            }
-            connect.close();
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            JOptionPane.showMessageDialog(null, "Something went wrong!",
-                    "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Incorrect email or password!");
         }
+        connect.close();
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Something went wrong!",
+                "Error", JOptionPane.ERROR_MESSAGE);
+    }
         return false;
 
     }
@@ -215,6 +215,11 @@ public void addInstructor(String name, String email, String password) {
             JOptionPane.showMessageDialog(null, "Something went wrong!",
                     "Error", JOptionPane.ERROR_MESSAGE);
         }
+    }
+
+    @Override
+    public boolean login(String email, String password) throws InvalidCredintial, Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

@@ -1,5 +1,6 @@
 package Users;
 
+import Exception.InvalidCredintial;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,43 +22,41 @@ public class Admin extends User implements Activity {
 		super(id, name, email);
 	}
 
-	@Override
-	public boolean login(String email, String password) {
+	public boolean login(String email, String password,String name ) {
 		Connection connect = db.load();
 
 		// Create a statement to execute the SQL query
 		Statement stmt;
 		ResultSet rs;
-		if (email.isEmpty() || password.isEmpty()) {
+		if (email.isEmpty() || password.isEmpty()|| name.isEmpty()) {
 			throw new NullException();
 		}
 		try {
 			stmt = connect.createStatement();
-			rs = stmt.executeQuery("SELECT admin_email, admin_password FROM admin WHERE admin_email='" + email + "'");
+			rs = stmt.executeQuery("SELECT admin_name, admin_email, admin_password FROM admin WHERE admin_email='" + email + "'");
 			if (rs.next()) {
 				// Get the password from the database
 				String passwordFromDB = rs.getString("admin_password");
+                                String nameFromDB = rs.getString("admin_name");
 
 				// Compare the password from the database with the entered password
-				if (passwordFromDB.equals(password)) {
+				if (passwordFromDB.equals(password)&& nameFromDB.equals(name)) {
 
 					JOptionPane.showMessageDialog(null, "Login successful!");
 					connect.close();
 					return true;
 				} else {
-					JOptionPane.showMessageDialog(null, "Incorrect email or password!");
-					return false;
-				}
-			} else {
-				JOptionPane.showMessageDialog(null, "Email not found!");
-				return false;
-			}
+                     JOptionPane.showMessageDialog(null, "Incorrect email, password, or name!");
 
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			JOptionPane.showMessageDialog(null, "Something went wrong!",
-					"Error", JOptionPane.ERROR_MESSAGE);
-		}
+                }
+            } else {
+            JOptionPane.showMessageDialog(null, "Incorrect email or password!");
+        }
+        connect.close();
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Something went wrong!",
+                "Error", JOptionPane.ERROR_MESSAGE);
+    }
 		return false;
 	}
 
@@ -119,6 +118,11 @@ public class Admin extends User implements Activity {
 			JOptionPane.showMessageDialog(null, "Something went wrong!", "Error", JOptionPane.ERROR_MESSAGE);
 		}
 	}
+
+    @Override
+    public boolean login(String email, String password) throws InvalidCredintial, Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
 
 
