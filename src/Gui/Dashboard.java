@@ -4,6 +4,8 @@
  */
 package Gui;
 
+import Users.Instructor;
+import Users.Student;
 import courses.Courses;
 import java.awt.Font;
 import java.util.ArrayList;
@@ -31,6 +33,8 @@ public class Dashboard extends javax.swing.JFrame {
         this.username= username;
         name.setText(username);
       courseCount.setText(String.valueOf(numberOfCourses()));
+      studentCount.setText(String.valueOf(numberOfStudent()));
+      instructorCount.setText(String.valueOf(numberOfInstructor()));
         title.setText(role);
     }
 
@@ -70,7 +74,7 @@ public class Dashboard extends javax.swing.JFrame {
         studentCount = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        instructorCount = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         courses = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
@@ -306,10 +310,10 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Teachers");
 
-        jLabel15.setFont(new java.awt.Font("Poppins ExtraBold", 0, 48)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("50");
-        jLabel15.setToolTipText("");
+        instructorCount.setFont(new java.awt.Font("Poppins ExtraBold", 0, 48)); // NOI18N
+        instructorCount.setForeground(new java.awt.Color(255, 255, 255));
+        instructorCount.setText("50");
+        instructorCount.setToolTipText("");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -319,7 +323,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(instructorCount, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(100, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -327,7 +331,7 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel15)
+                .addComponent(instructorCount)
                 .addGap(16, 16, 16))
         );
 
@@ -582,6 +586,17 @@ private int numberOfCourses() {
     ArrayList<Courses> coursesList = courseModel.getCourse();
     return coursesList.size();
 }
+private int numberOfStudent(){
+    Student studentModel = new Student();
+    ArrayList<Student> studentList = studentModel.getStudents();
+    return studentList.size();
+    
+}
+private int numberOfInstructor(){
+    Instructor instructorModel = new Instructor();
+    ArrayList<Instructor> instructorList = instructorModel.getInstructor();
+    return instructorList.size();
+}
 
 
     private void dashboardTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardTabMouseClicked
@@ -681,11 +696,11 @@ private int numberOfCourses() {
     private javax.swing.JLabel coursesTab;
     private javax.swing.JPanel dashboard;
     private javax.swing.JLabel dashboardTab;
+    private javax.swing.JLabel instructorCount;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
