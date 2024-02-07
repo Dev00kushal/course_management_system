@@ -10,14 +10,19 @@ import java.awt.Font;
  *
  * @author devku
  */
-public class Dashboard extends javax.swing.JFrame {
 
+public class Dashboard extends javax.swing.JFrame {
+    private String  user;
+    private String emailInfo;
     /**
      * Creates new form Dashboard
      */
-    public Dashboard() {
+
+    public Dashboard(String user, String emailInfo) {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.user = user;
+        this.emailInfo = emailInfo;
     }
 
     /**
@@ -648,7 +653,7 @@ public class Dashboard extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Dashboard().setVisible(true);
+                new Dashboard("","").setVisible(true);
             }
         });
     }
