@@ -86,7 +86,7 @@ public class Signup extends javax.swing.JFrame {
         selectRoles.setEditable(true);
         selectRoles.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         selectRoles.setForeground(new java.awt.Color(255, 255, 255));
-        selectRoles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select a role", "Student", "Instructor", "Admin" }));
+        selectRoles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select a role", "Student", "Instructor" }));
         selectRoles.setToolTipText("");
         selectRoles.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         selectRoles.addActionListener(new java.awt.event.ActionListener() {
@@ -176,14 +176,16 @@ public class Signup extends javax.swing.JFrame {
         selectCourse.addItem(course.course_name);
     }
 }
-    
+    public String getUsername(){
+        return username.getText();
+    }
     private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_usernameActionPerformed
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-       String uname = username.getText(); 
-       LoginPage l1 = new LoginPage(uname); 
+
+       LoginPage l1 = new LoginPage(); 
        l1.setVisible(true);
        dispose();
     }//GEN-LAST:event_jLabel5MouseClicked
@@ -232,7 +234,7 @@ public class Signup extends javax.swing.JFrame {
         } catch (NullException ex) {
             JOptionPane.showMessageDialog(null, "Please fill all the fields");
         } catch (InvalidFormat ex1) {
-            JOptionPane.showMessageDialog(null, "Invalid Email or Phone Number or Password Format");
+            JOptionPane.showMessageDialog(null, "Invalid Email or Password Format");
         }
          email.setText("");
          password.setText("");

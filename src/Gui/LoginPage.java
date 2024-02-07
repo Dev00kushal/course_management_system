@@ -19,11 +19,9 @@ public class LoginPage extends javax.swing.JFrame {
     /**
      * Creates new form LoginPage
      */
-    private String username;
-    public LoginPage(String username) {
+    public LoginPage() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.username = username;
     }
 
 
@@ -46,6 +44,7 @@ public class LoginPage extends javax.swing.JFrame {
         LoginBtn = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         signupBtnOnLoginJframe = new javax.swing.JLabel();
+        username = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -63,7 +62,7 @@ public class LoginPage extends javax.swing.JFrame {
         jLabel3.setText("Login");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jLabel3.setIconTextGap(10);
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 350, 70));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 350, 70));
 
         email.setBackground(new java.awt.Color(123, 95, 241));
         email.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
@@ -131,6 +130,17 @@ public class LoginPage extends javax.swing.JFrame {
         });
         jPanel2.add(signupBtnOnLoginJframe, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 450, 50, -1));
 
+        username.setBackground(new java.awt.Color(123, 95, 241));
+        username.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        username.setForeground(new java.awt.Color(255, 255, 255));
+        username.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), "Name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Poppins", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        username.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usernameActionPerformed(evt);
+            }
+        });
+        jPanel2.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 370, 50));
+
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 550));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -177,13 +187,13 @@ public class LoginPage extends javax.swing.JFrame {
     private void LoginBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginBtnMouseClicked
                                 String emailField = email.getText();
 				String passField = new String(password.getPassword());
-                                String uname = username;
+                               String uname = username.getText();
 				Student s = new Student();
 				Instructor i = new Instructor();
 				Admin a = new Admin();
 				try {
 					if (selectRolesLogin.getSelectedItem().equals("Student")) {
-						if (s.login(emailField, passField)) {
+						if (s.login(emailField, passField,uname)) {
 							 new Dashboard(selectRolesLogin.getSelectedItem().toString(),emailField,uname,"Student").setVisible(true);
                                                         dispose();
                                                        
@@ -197,7 +207,7 @@ public class LoginPage extends javax.swing.JFrame {
 						}
 					} else if (selectRolesLogin.getSelectedItem().equals("Admin")) {
 						if (a.login(emailField, passField)) {
-                                                        new Dashboard(selectRolesLogin.getSelectedItem().toString(),emailField,uname,"Admin").setVisible(true);                                                        
+                                                        new Dashboard(selectRolesLogin.getSelectedItem().toString(),emailField,uname,"Administrator").setVisible(true);                                                        
                                                         dispose();
 
 						}
@@ -214,8 +224,13 @@ public class LoginPage extends javax.swing.JFrame {
 				}
                                  email.setText("");
                                  password.setText("");
+                                 username.setText("");
                                  
     }//GEN-LAST:event_LoginBtnMouseClicked
+
+    private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usernameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,7 +262,7 @@ public class LoginPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginPage("").setVisible(true);
+                new LoginPage().setVisible(true);
             }
         });
     }
@@ -265,5 +280,6 @@ public class LoginPage extends javax.swing.JFrame {
     private javax.swing.JPasswordField password;
     private javax.swing.JComboBox<String> selectRolesLogin;
     private javax.swing.JLabel signupBtnOnLoginJframe;
+    private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }

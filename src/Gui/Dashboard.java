@@ -586,8 +586,8 @@ public class Dashboard extends javax.swing.JFrame {
 
     
     private void logoutTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutTabMouseClicked
-   
-        LoginPage l1 = new LoginPage(username);
+
+        LoginPage l1 = new LoginPage();
           l1.setVisible(true);
           dispose();
     }//GEN-LAST:event_logoutTabMouseClicked

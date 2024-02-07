@@ -1,5 +1,6 @@
 package Users;
 
+import Exception.InvalidCredintial;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -106,46 +107,41 @@ public Student(){
         }
     }
 
-    @Override
+    public boolean login(String email, String password, String name) {
+    Connection connect = db.load();
 
-    public boolean login(String email, String password) {
-        // TODO Auto-generated method stub
-        Connection connect = db.load();
-
-        // Create a statement to execute the SQL query
-        Statement stmt;
-        ResultSet rs;
-        if (email.isEmpty() || password.isEmpty()) {
-            throw new NullException();
-        }
-        try {
-            stmt = connect.createStatement();
-            rs = stmt.executeQuery(
-                    "SELECT student_email, student_password FROM students WHERE student_email='" + email + "'");
-            if (rs.next()) {
-                // Get the password from the database
-                String passwordFromDB = rs.getString("student_password");
-
-                // Compare the password from the database with the entered password
-                if (passwordFromDB.equals(password)) {
-
-                    JOptionPane.showMessageDialog(null, "Login successful!");
-                    return true;
-                } else {
-                    JOptionPane.showMessageDialog(null, "Incorrecet email or password!");
-                }
-            } else {
-                JOptionPane.showMessageDialog(null, "Incorrecet email or password!");
-            }
-            connect.close();
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            JOptionPane.showMessageDialog(null, "Something went wrong!",
-                    "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        return false;
-
+    Statement stmt;
+    ResultSet rs;
+    if (email.isEmpty() || password.isEmpty() || name.isEmpty()) {
+        throw new NullException();
     }
+    try {
+        stmt = connect.createStatement();
+        rs = stmt.executeQuery(
+                "SELECT student_name, student_password FROM students WHERE student_email='" + email + "'");
+        if (rs.next()) {
+            // Get the password and name from the database
+            String passwordFromDB = rs.getString("student_password");
+            String nameFromDB = rs.getString("student_name");
+
+            // Compare the password and name from the database with the entered ones
+            if (passwordFromDB.equals(password) && nameFromDB.equals(name)) {
+                JOptionPane.showMessageDialog(null, "Login successful!");
+                return true;
+            } else {
+                JOptionPane.showMessageDialog(null, "Incorrect email, password, or name!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Incorrect email or password!");
+        }
+        connect.close();
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Something went wrong!",
+                "Error", JOptionPane.ERROR_MESSAGE);
+    }
+    return false;
+}
+
 
     public ArrayList<String> moduleEnrollment(String email) {
         String query = "SELECT students.student_id, students.student_name, modules.module_id, modules.module_name FROM students JOIN enrollments ON students.student_id = enrollments.student_id JOIN modules ON enrollments.module_id = modules.module_id WHERE students.student_email = ?";
@@ -164,6 +160,11 @@ public Student(){
                     "Error", JOptionPane.ERROR_MESSAGE);
         }
         return students;
+    }
+
+    @Override
+    public boolean login(String email, String password) throws InvalidCredintial, Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
   
