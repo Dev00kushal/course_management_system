@@ -172,32 +172,30 @@ public class LoginPage extends javax.swing.JFrame {
     }//GEN-LAST:event_signupBtnOnLoginJframeMouseClicked
 
     private void LoginBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginBtnMouseClicked
-        String emailField = email.getText();
+                                String emailField = email.getText();
 				String passField = new String(password.getPassword());
-
+                                String uname = new Signup().getUsername();
+                                System.out.println(uname);
 				Student s = new Student();
 				Instructor i = new Instructor();
 				Admin a = new Admin();
 				try {
 					if (selectRolesLogin.getSelectedItem().equals("Student")) {
 						if (s.login(emailField, passField)) {
-							Dashboard d1 = new Dashboard();
-                                                        d1.setVisible(true);
+							 new Dashboard(selectRolesLogin.getSelectedItem().toString(),emailField,uname).setVisible(true);
                                                         dispose();
                                                        
                                                         
 						}
 					} else if (selectRolesLogin.getSelectedItem().equals("Instructor")) {
 						if (i.login(emailField, passField)) {
-                                                    Dashboard d1 = new Dashboard();
-                                                        d1.setVisible(true);
+                                                        new Dashboard(selectRolesLogin.getSelectedItem().toString(),emailField,uname);                                              
                                                         dispose();
 
 						}
 					} else if (selectRolesLogin.getSelectedItem().equals("Admin")) {
 						if (a.login(emailField, passField)) {
-                                                    Dashboard d1 = new Dashboard();
-                                                        d1.setVisible(true);
+                                                        new Dashboard(selectRolesLogin.getSelectedItem().toString(),emailField,uname);                                                        
                                                         dispose();
 
 						}

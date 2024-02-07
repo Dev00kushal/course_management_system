@@ -176,7 +176,11 @@ public class Signup extends javax.swing.JFrame {
         selectCourse.addItem(course.course_name);
     }
 }
-
+    // Getter method to retrieve the username
+    public String getUsername() {
+        return name.getText();
+    }
+    
     private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nameActionPerformed

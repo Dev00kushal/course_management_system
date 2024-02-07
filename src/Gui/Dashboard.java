@@ -13,16 +13,19 @@ import java.awt.Font;
 
 public class Dashboard extends javax.swing.JFrame {
     private String  user;
+    private String username;  
     private String emailInfo;
     /**
      * Creates new form Dashboard
      */
 
-    public Dashboard(String user, String emailInfo) {
+    public Dashboard(String user, String emailInfo,String username ){
         initComponents();
         this.setLocationRelativeTo(null);
         this.user = user;
         this.emailInfo = emailInfo;
+        this.username= username;
+        name.setText(username);
     }
 
     /**
@@ -50,7 +53,7 @@ public class Dashboard extends javax.swing.JFrame {
         dashboard = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        name = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -212,9 +215,9 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icons/avatar.png"))); // NOI18N
         dashboard.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Poppins Medium", 1, 18)); // NOI18N
-        jLabel2.setText("Biraj Boka");
-        dashboard.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, -1, -1));
+        name.setFont(new java.awt.Font("Poppins Medium", 1, 18)); // NOI18N
+        name.setText("Biraj Boka");
+        dashboard.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
         jLabel3.setText("Administration");
@@ -653,7 +656,7 @@ public class Dashboard extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Dashboard("","").setVisible(true);
+                new Dashboard("","","").setVisible(true);
             }
         });
     }
@@ -674,7 +677,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -702,6 +704,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel logoutTab;
+    private javax.swing.JLabel name;
     private javax.swing.JPanel settings;
     private javax.swing.JLabel settingsTab;
     private javax.swing.JPanel students;
