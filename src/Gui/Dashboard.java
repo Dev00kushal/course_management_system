@@ -15,17 +15,20 @@ public class Dashboard extends javax.swing.JFrame {
     private String  user;
     private String username;  
     private String emailInfo;
+    private String role;
     /**
      * Creates new form Dashboard
      */
 
-    public Dashboard(String user, String emailInfo,String username ){
+    public Dashboard(String user, String emailInfo,String username,String role){
         initComponents();
         this.setLocationRelativeTo(null);
         this.user = user;
         this.emailInfo = emailInfo;
+        this.role = role;
         this.username= username;
         name.setText(username);
+        title.setText(role);
     }
 
     /**
@@ -54,7 +57,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         name = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        title = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -219,9 +222,9 @@ public class Dashboard extends javax.swing.JFrame {
         name.setText("Biraj Boka");
         dashboard.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
-        jLabel3.setText("Administration");
-        dashboard.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, -1, -1));
+        title.setFont(new java.awt.Font("Poppins Medium", 0, 12)); // NOI18N
+        title.setText("Administration");
+        dashboard.add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Poppins ExtraBold", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 51, 51));
@@ -581,8 +584,10 @@ public class Dashboard extends javax.swing.JFrame {
         settingsTab.setFont(new Font("Poppins Medium", Font.PLAIN, 16));
     }//GEN-LAST:event_dashboardTabMouseClicked
 
+    
     private void logoutTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutTabMouseClicked
-          LoginPage l1 = new LoginPage();
+   
+        LoginPage l1 = new LoginPage(username);
           l1.setVisible(true);
           dispose();
     }//GEN-LAST:event_logoutTabMouseClicked
@@ -656,7 +661,7 @@ public class Dashboard extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Dashboard("","","").setVisible(true);
+                new Dashboard("","","","").setVisible(true);     
             }
         });
     }
@@ -681,7 +686,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -710,6 +714,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel students;
     private javax.swing.JLabel studentsTab;
     private javax.swing.JTabbedPane tabs;
+    private javax.swing.JLabel title;
     private javax.swing.JPanel tutors;
     private javax.swing.JLabel tutorsTab;
     // End of variables declaration//GEN-END:variables

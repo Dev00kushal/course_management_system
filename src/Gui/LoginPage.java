@@ -19,10 +19,13 @@ public class LoginPage extends javax.swing.JFrame {
     /**
      * Creates new form LoginPage
      */
-    public LoginPage() {
+    private String username;
+    public LoginPage(String username) {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.username = username;
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -174,28 +177,27 @@ public class LoginPage extends javax.swing.JFrame {
     private void LoginBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginBtnMouseClicked
                                 String emailField = email.getText();
 				String passField = new String(password.getPassword());
-                                String uname = new Signup().getUsername();
-                                System.out.println(uname);
+                                String uname = username;
 				Student s = new Student();
 				Instructor i = new Instructor();
 				Admin a = new Admin();
 				try {
 					if (selectRolesLogin.getSelectedItem().equals("Student")) {
 						if (s.login(emailField, passField)) {
-							 new Dashboard(selectRolesLogin.getSelectedItem().toString(),emailField,uname).setVisible(true);
+							 new Dashboard(selectRolesLogin.getSelectedItem().toString(),emailField,uname,"Student").setVisible(true);
                                                         dispose();
                                                        
                                                         
 						}
 					} else if (selectRolesLogin.getSelectedItem().equals("Instructor")) {
 						if (i.login(emailField, passField)) {
-                                                        new Dashboard(selectRolesLogin.getSelectedItem().toString(),emailField,uname);                                              
+                                                        new Dashboard(selectRolesLogin.getSelectedItem().toString(),emailField,uname,"Instructor").setVisible(true);                                              
                                                         dispose();
 
 						}
 					} else if (selectRolesLogin.getSelectedItem().equals("Admin")) {
 						if (a.login(emailField, passField)) {
-                                                        new Dashboard(selectRolesLogin.getSelectedItem().toString(),emailField,uname);                                                        
+                                                        new Dashboard(selectRolesLogin.getSelectedItem().toString(),emailField,uname,"Admin").setVisible(true);                                                        
                                                         dispose();
 
 						}
@@ -245,7 +247,7 @@ public class LoginPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginPage().setVisible(true);
+                new LoginPage("").setVisible(true);
             }
         });
     }

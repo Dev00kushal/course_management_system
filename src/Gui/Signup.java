@@ -23,7 +23,7 @@ public class Signup extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        name = new javax.swing.JTextField();
+        username = new javax.swing.JTextField();
         email = new javax.swing.JTextField();
         password = new javax.swing.JPasswordField();
         selectRoles = new javax.swing.JComboBox<>();
@@ -58,16 +58,16 @@ public class Signup extends javax.swing.JFrame {
         jLabel4.setText("Let's get started!");
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 86, 158, -1));
 
-        name.setBackground(new java.awt.Color(123, 95, 241));
-        name.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        name.setForeground(new java.awt.Color(255, 255, 255));
-        name.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), "Name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Poppins", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
-        name.addActionListener(new java.awt.event.ActionListener() {
+        username.setBackground(new java.awt.Color(123, 95, 241));
+        username.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        username.setForeground(new java.awt.Color(255, 255, 255));
+        username.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), "Name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Poppins", 0, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameActionPerformed(evt);
+                usernameActionPerformed(evt);
             }
         });
-        jPanel3.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 139, 433, 50));
+        jPanel3.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 139, 433, 50));
 
         email.setBackground(new java.awt.Color(123, 95, 241));
         email.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
@@ -176,22 +176,18 @@ public class Signup extends javax.swing.JFrame {
         selectCourse.addItem(course.course_name);
     }
 }
-    // Getter method to retrieve the username
-    public String getUsername() {
-        return name.getText();
-    }
     
-    private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
+    private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nameActionPerformed
+    }//GEN-LAST:event_usernameActionPerformed
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-       LoginPage l1 = new LoginPage();
+       String uname = username.getText(); 
+       LoginPage l1 = new LoginPage(uname); 
        l1.setVisible(true);
-        dispose();
+       dispose();
     }//GEN-LAST:event_jLabel5MouseClicked
 
-    
     private void selectRolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectRolesActionPerformed
         if(selectRoles.getSelectedItem().toString().equals("Student")){
             selectCourse.setVisible(true);
@@ -210,7 +206,7 @@ public class Signup extends javax.swing.JFrame {
    Instructor i = new Instructor();
    Student s = new Student();
    Courses c = new Courses();
-        String uname = name.getText();
+        String uname = username.getText();
         String p = new String(password.getPassword());
         String em = email.getText();
         Validation v = new Validation();
@@ -222,7 +218,11 @@ public class Signup extends javax.swing.JFrame {
 
                     if (selectRoles.getSelectedItem().equals("Student")) {
                         s.studentRegister(uname, courseId, em, p, 1);
+                        new Dashboard(selectRoles.getSelectedItem().toString(), em, uname,"Student").setVisible(true);
+                        dispose();
                     } if(selectRoles.getSelectedItem().equals("Instructor")) {
+                         new Dashboard(selectRoles.getSelectedItem().toString(), em, uname,"Instructor").setVisible(true);
+                         dispose();
                         i.addInstructor(uname, em,p);
                     }
                 } else {
@@ -236,9 +236,9 @@ public class Signup extends javax.swing.JFrame {
         }
          email.setText("");
          password.setText("");
-         name.setText("");
+         
     }//GEN-LAST:event_signupBtnMouseClicked
-
+    
     /**
      * @param args the command line arguments
      */
@@ -285,10 +285,10 @@ public class Signup extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField name;
     private javax.swing.JPasswordField password;
     private javax.swing.JComboBox<String> selectCourse;
     private javax.swing.JComboBox<String> selectRoles;
     private javax.swing.JButton signupBtn;
+    private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }
