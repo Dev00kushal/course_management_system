@@ -4,7 +4,9 @@
  */
 package Gui;
 
+import courses.Courses;
 import java.awt.Font;
+import java.util.ArrayList;
 
 /**
  *
@@ -28,6 +30,7 @@ public class Dashboard extends javax.swing.JFrame {
         this.role = role;
         this.username= username;
         name.setText(username);
+      courseCount.setText(String.valueOf(numberOfCourses()));
         title.setText(role);
     }
 
@@ -61,10 +64,10 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        courseCount = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        studentCount = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -238,9 +241,9 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Courses");
 
-        jLabel13.setFont(new java.awt.Font("Poppins ExtraBold", 0, 48)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("10");
+        courseCount.setFont(new java.awt.Font("Poppins ExtraBold", 0, 48)); // NOI18N
+        courseCount.setForeground(new java.awt.Color(255, 255, 255));
+        courseCount.setText("10");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -250,7 +253,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(courseCount, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(118, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -259,7 +262,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel6)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 52, Short.MAX_VALUE)
+                .addComponent(courseCount, javax.swing.GroupLayout.PREFERRED_SIZE, 52, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -271,9 +274,9 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Students");
 
-        jLabel14.setFont(new java.awt.Font("Poppins ExtraBold", 0, 48)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("400");
+        studentCount.setFont(new java.awt.Font("Poppins ExtraBold", 0, 48)); // NOI18N
+        studentCount.setForeground(new java.awt.Color(255, 255, 255));
+        studentCount.setText("400");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -283,7 +286,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14))
+                    .addComponent(studentCount))
                 .addContainerGap(111, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -291,7 +294,7 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(studentCount, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -574,6 +577,12 @@ public class Dashboard extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+private int numberOfCourses() {
+    Courses courseModel = new Courses();
+    ArrayList<Courses> coursesList = courseModel.getCourse();
+    return coursesList.size();
+}
+
 
     private void dashboardTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardTabMouseClicked
          tabs.setSelectedIndex(0);
@@ -584,7 +593,7 @@ public class Dashboard extends javax.swing.JFrame {
         settingsTab.setFont(new Font("Poppins Medium", Font.PLAIN, 16));
     }//GEN-LAST:event_dashboardTabMouseClicked
 
-    
+
     private void logoutTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutTabMouseClicked
 
         LoginPage l1 = new LoginPage();
@@ -667,6 +676,7 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel courseCount;
     private javax.swing.JPanel courses;
     private javax.swing.JLabel coursesTab;
     private javax.swing.JPanel dashboard;
@@ -675,8 +685,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -711,6 +719,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel name;
     private javax.swing.JPanel settings;
     private javax.swing.JLabel settingsTab;
+    private javax.swing.JLabel studentCount;
     private javax.swing.JPanel students;
     private javax.swing.JLabel studentsTab;
     private javax.swing.JTabbedPane tabs;

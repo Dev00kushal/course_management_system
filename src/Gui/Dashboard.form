@@ -405,7 +405,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel6" min="-2" pref="105" max="-2" attributes="0"/>
-                              <Component id="jLabel13" alignment="0" min="-2" pref="106" max="-2" attributes="0"/>
+                              <Component id="courseCount" alignment="0" min="-2" pref="106" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="118" max="32767" attributes="0"/>
                       </Group>
@@ -417,7 +417,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jLabel13" pref="52" max="32767" attributes="0"/>
+                          <Component id="courseCount" pref="52" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -435,7 +435,7 @@
                     <Property name="text" type="java.lang.String" value="Courses"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel13">
+                <Component class="javax.swing.JLabel" name="courseCount">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Poppins ExtraBold" size="48" style="0"/>
@@ -467,7 +467,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel7" alignment="0" min="-2" pref="133" max="-2" attributes="0"/>
-                              <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="studentCount" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="111" max="32767" attributes="0"/>
                       </Group>
@@ -478,7 +478,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jLabel14" min="-2" pref="49" max="-2" attributes="0"/>
+                          <Component id="studentCount" min="-2" pref="49" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -496,7 +496,7 @@
                     <Property name="text" type="java.lang.String" value="Students"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel14">
+                <Component class="javax.swing.JLabel" name="studentCount">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Poppins ExtraBold" size="48" style="0"/>

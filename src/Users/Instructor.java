@@ -179,12 +179,12 @@ public class Instructor extends User implements Activity {
     }
 
 public void addInstructor(String name, String email, String password) {
-    String query = "INSERT INTO instructors (instructor_name, instructor_email,instructor_password) VALUES (?, ?, ?, ?)";
+   String query = "INSERT INTO instructors (instructor_name, instructor_email, instructor_password) VALUES (?, ?, ?)";
     try {
         PreparedStatement state = connect.prepareStatement(query);
         state.setString(1, name);
         state.setString(2, email);
-        state.setString(4, password);
+        state.setString(3, password);
         state.executeUpdate();
         state.close();
         JOptionPane.showMessageDialog(null, "Instructor added successfully!");
