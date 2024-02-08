@@ -20,21 +20,23 @@ public class CRUDCourse {
         }
     }
 
-    public void createCourse(String courseName) {
-        String query = "INSERT INTO courses(course_name) VALUES(?)";
-        if(courseName.isEmpty()) {
-        	throw new NullException();
-        }
-        try {
-            PreparedStatement state = connect.prepareStatement(query);
-            state.setString(1, courseName);
-            state.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Course created successfully!", "Success!",
-                    JOptionPane.INFORMATION_MESSAGE);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Couldn't create the course!", "Error!", JOptionPane.ERROR_MESSAGE);
-        }
+public void createCourse(int courseId, String courseName) {
+    String query = "INSERT INTO courses(course_id, course_name) VALUES(?, ?)";
+    if (courseName.isEmpty()) {
+        throw new NullException();
     }
+    try {
+        PreparedStatement state = connect.prepareStatement(query);
+        state.setInt(1, courseId);
+        state.setString(2, courseName);
+        state.executeUpdate();
+        JOptionPane.showMessageDialog(null, "Course created successfully!", "Success!",
+                JOptionPane.INFORMATION_MESSAGE);
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Couldn't create the course!", "Error!", JOptionPane.ERROR_MESSAGE);
+    }
+}
+
 
     public void deleteCourse(int courseId) {
         String module = "DELETE FROM modules WHERE course_id = ?";

@@ -6,6 +6,7 @@ package Gui;
 
 import Users.Instructor;
 import Users.Student;
+import courses.CRUDCourse;
 import courses.Courses;
 import java.awt.Font;
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ public class Dashboard extends javax.swing.JFrame {
         name.setText(username);
       courseCount.setText(String.valueOf(numberOfCourses()));
       studentCount.setText(String.valueOf(numberOfStudent()));
-      instructorCount.setText(String.valueOf(numberOfInstructor()));
+      jLabel15.setText(String.valueOf(numberOfInstructor()));
         title.setText(role);
     }
 
@@ -74,7 +75,7 @@ public class Dashboard extends javax.swing.JFrame {
         studentCount = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        instructorCount = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         courses = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
@@ -84,7 +85,7 @@ public class Dashboard extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
-        jLabel19 = new javax.swing.JLabel();
+        addCourse = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
@@ -310,10 +311,10 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Teachers");
 
-        instructorCount.setFont(new java.awt.Font("Poppins ExtraBold", 0, 48)); // NOI18N
-        instructorCount.setForeground(new java.awt.Color(255, 255, 255));
-        instructorCount.setText("50");
-        instructorCount.setToolTipText("");
+        jLabel15.setFont(new java.awt.Font("Poppins ExtraBold", 0, 48)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("50");
+        jLabel15.setToolTipText("");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -323,7 +324,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(instructorCount, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(100, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -331,7 +332,7 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(instructorCount)
+                .addComponent(jLabel15)
                 .addGap(16, 16, 16))
         );
 
@@ -365,8 +366,8 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -394,12 +395,17 @@ public class Dashboard extends javax.swing.JFrame {
 
         jPanel7.setBackground(new java.awt.Color(123, 95, 241));
 
-        jLabel19.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icons/add.png"))); // NOI18N
-        jLabel19.setText("Add");
-        jLabel19.setIconTextGap(10);
+        addCourse.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        addCourse.setForeground(new java.awt.Color(255, 255, 255));
+        addCourse.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        addCourse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icons/add.png"))); // NOI18N
+        addCourse.setText("Add");
+        addCourse.setIconTextGap(10);
+        addCourse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addCourseMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -407,12 +413,12 @@ public class Dashboard extends javax.swing.JFrame {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                .addComponent(addCourse, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+            .addComponent(addCourse, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
         courses.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, 100, 40));
@@ -532,7 +538,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         tabs.addTab("tab2", courses);
 
-        tutors.setBackground(new java.awt.Color(204, 255, 204));
+        tutors.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout tutorsLayout = new javax.swing.GroupLayout(tutors);
         tutors.setLayout(tutorsLayout);
@@ -542,12 +548,12 @@ public class Dashboard extends javax.swing.JFrame {
         );
         tutorsLayout.setVerticalGroup(
             tutorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 595, Short.MAX_VALUE)
+            .addGap(0, 799, Short.MAX_VALUE)
         );
 
         tabs.addTab("tab3", tutors);
 
-        students.setBackground(new java.awt.Color(153, 255, 102));
+        students.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout studentsLayout = new javax.swing.GroupLayout(students);
         students.setLayout(studentsLayout);
@@ -557,7 +563,7 @@ public class Dashboard extends javax.swing.JFrame {
         );
         studentsLayout.setVerticalGroup(
             studentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 595, Short.MAX_VALUE)
+            .addGap(0, 799, Short.MAX_VALUE)
         );
 
         tabs.addTab("tab4", students);
@@ -572,7 +578,7 @@ public class Dashboard extends javax.swing.JFrame {
         );
         settingsLayout.setVerticalGroup(
             settingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 595, Short.MAX_VALUE)
+            .addGap(0, 799, Short.MAX_VALUE)
         );
 
         tabs.addTab("tab5", settings);
@@ -581,7 +587,9 @@ public class Dashboard extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-private int numberOfCourses() {
+
+    // these all function for displaying the student,teacher,course count in the dashboard%
+    private int numberOfCourses() {
     Courses courseModel = new Courses();
     ArrayList<Courses> coursesList = courseModel.getCourse();
     return coursesList.size();
@@ -655,6 +663,12 @@ private int numberOfInstructor(){
         studentsTab.setFont(new Font("Poppins Medium", Font.PLAIN, 16));
     }//GEN-LAST:event_settingsTabMouseClicked
 
+    private void addCourseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addCourseMouseClicked
+   // add course logic 
+   AddCourse courseFrame = new AddCourse();
+   courseFrame.setVisible(true);
+    }//GEN-LAST:event_addCourseMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -691,20 +705,20 @@ private int numberOfInstructor(){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel addCourse;
     private javax.swing.JLabel courseCount;
     private javax.swing.JPanel courses;
     private javax.swing.JLabel coursesTab;
     private javax.swing.JPanel dashboard;
     private javax.swing.JLabel dashboardTab;
-    private javax.swing.JLabel instructorCount;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;

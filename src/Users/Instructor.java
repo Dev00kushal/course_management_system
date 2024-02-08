@@ -187,7 +187,6 @@ public void addInstructor(String name, String email, String password) {
         state.setString(3, password);
         state.executeUpdate();
         state.close();
-        JOptionPane.showMessageDialog(null, "Instructor added successfully!");
     } catch (SQLException e) {
         e.printStackTrace();
         JOptionPane.showMessageDialog(null, "Something went wrong: " + e.getMessage(),
